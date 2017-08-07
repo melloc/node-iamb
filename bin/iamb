@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /*
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -5,7 +6,13 @@
  */
 
 /*
- * Copyright (c) 2017, Cody Mello.
+ * Copyright 2017, Cody Mello.
  */
 
 'use strict';
+
+process.title = 'iamb';
+
+var mod_cli = require('../lib/cli');
+
+mod_cli.main(process.argv);

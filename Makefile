@@ -3,7 +3,7 @@
 #
 NPM		:= npm
 ESLINT		= ./node_modules/.bin/eslint
-JS_FILES	:= $(shell find lib test -name '*.js')
+JS_FILES	:= $(shell find lib test -name '*.js') bin/iamb
 
 $(ESLINT): | $(NPM_EXEC)
 	$(NPM) install \
