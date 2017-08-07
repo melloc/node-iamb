@@ -1,0 +1,42 @@
+{
+  "name": "iamb",
+  "description": "A terminal chat client",
+  "version": "0.0.0",
+  "author": "Cody Peter Mello <cody.mello@joyent.com>",
+  "keywords": [
+    "jabber",
+    "xmpp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/melloc/node-iamb.git"
+  },
+  "dependencies": {
+    "assert-plus": "1.0.0",
+    "termdraw": "git+https://github.com/melloc/node-termdraw.git#iamb",
+    "bunyan": "1.8.5",
+    "cmdln": "3.0.2",
+    "dtrace-provider": "~0.8",
+    "jsprim": "1.4.0",
+    "ltx": "2.7.1",
+    "mooremachine": "2.1.0",
+    "uuid": "3.0.0",
+    "vasync": "1.6.4",
+    "verror": "1.9.0"
+  },
+  "devDependencies": {
+    "eslint": "2.13.1",
+    "eslint-plugin-joyent": "1.1.0",
+    "faucet": "0.0.1",
+    "istanbul": "^0.4.0",
+    "tape": "^4.2.2"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "license": "MPL-2.0"
+}
