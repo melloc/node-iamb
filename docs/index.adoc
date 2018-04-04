@@ -1,0 +1,163 @@
+:toc: left
+:numbered:
+:data-uri:
+
+# iamb
+
+## Configuration
+
+Create a configuration file `mm-account.json`:
+
+...................................
+{
+    "url": "<mattermost url",
+    "team": "<your team name>",
+    "auth": {
+        "username": "<your username>",
+        "password": "<your password>"
+    }
+}
+...................................
+
+
+## Usage
+
+When you initially start iamb, you will yourself in the Lobby. This space
+is used by iamb for printing out information unrelated to any of your ongoing
+conversations. If you navigate away from here but want to return, you can type
+`gl` to open the Lobby in the currently focused window.
+
+Note that when a key should be pressed while holding control, these documents
+will write `^<key>`, to indicate holding control plus `<key>`. A literal press
+of caret (`^`) will be written on its own.
+
+TIP: From within iamb you can type `:help [name]` to see the help message
+for another command.
+
+### Messaging
+
+iamb currently supports joining Mattermost channels and direct messages.
+To join a channel, type `:join [channel]`, or, to message a user directly,
+type `:dm [user]`.
+
+TIP: Use `^O` and `^I` to navigate backwards and forwards in a window's room
+history.
+
+[options="header"]
+.Messaging Commands
+|===============================================================================
+| Name     | Aliases   | Action
+| `:dm`    |           | Opens a direct conversation with another user
+| `:join`  |           | Joins a channel
+|===============================================================================
+
+### Editing
+
+When editing a message, iamb supports most vim keybindings for editing.
+footnote:[If you find a keybinding you use missing, please
+https://github.com/melloc/node-iamb/issues[open an issue] so we can add it!]
+Once you are ready to send your message, press
+`<Enter>` while in `NORMAL` mode.
+
+You may also find the `:registers` useful. It will display the contents of all
+registers in the Lobby
+
+[options="header"]
+.Common Editing Keys
+|===============================================================================
+| Keypress        | Action
+| `c<move>`       | Change a piece of text
+| `d<move>`       | Delete (cut) a piece of text
+| `y<move>`       | Yank (copy) a piece of text
+| `r<character>`  | Replace a character with another `<character>`
+| `x`             | Delete a character
+| `a`             | Enters `INSERT` mode after the character under the cursor
+| `i`             | Enters `INSERT` mode before the character under the cursor
+| `v`             | Enters `VISUAL` mode
+| `R`             | Enters `REPLACE` mode
+| `p`             | Paste after the cursor's position
+| `P`             | Paste before the cursor's position
+| `u`             | Undo the last editing action
+| `^R`            | Redo an editing action
+| `"<k><action>`  | Perform an editing action, and place yanked/deleted text into register `<k>`
+|===============================================================================
+
+[options="header"]
+.Common Movements Keys
+|===============================================================================
+| Keypress        | Action
+| `^`             | Move to the first non-space character on the line
+| `$`             | Move to the end of the line
+| `0`             | Move to the start of the line
+| `h`             | Move character-wise to the left
+| `l`             | Move character-wise to the right
+| `w`             | Move to the beginning of the next word
+| `e`             | Move to the next word end
+| `f<character>`  | Move to the next occurrence of `<character>`
+| `t<character>`  | Move to the character before the next occurrence of `<character>`
+| `F<character>`  | Move to the last occurrence of `<character>`
+| `T<character>`  | Move to the character after the last occurrence of `<character>`
+| `;`             | Repeat the last movement going forward
+| `,`             | Repeat the last movement going backward
+|===============================================================================
+
+
+### Windows
+
+If you want to view multiple rooms concurrently, you can create new windows
+using the `:split` command, which duplicates the existing window (including
+current scroll position).
+
+To move focus between windows, use `^W<direction>` where `<direction>` is one
+of `h`, `j`, `k`, or `l`. When you are done with a window, type `:quit` to
+close it. If there is only a single remaining window, then this will exit
+iamb. (If you have multiple windows open and don't want to close each
+individually, type `:qall`.)
+
+[options="header"]
+.Windowing Commands
+|===============================================================================
+| Name     | Aliases      | Action
+| `:split` | `:sp`        | Horizontally splits the currently focused window into two
+| `:quit`  | `:q`, `:Q`   | Closes the currently focused window
+| `:qall`  | `:qa`, `:Qa` | Exits the program
+|===============================================================================
+
+[options="header"]
+.Windowing Keys
+|===============================================================================
+| Keypress        | Action
+| `^O`            | Jump backwards to a previously opened room
+| `^P`            | Jump forwards to a previously opened room
+| `^W-`           | Make the currently focused window shorter
+| `^W+`           | Make the currently focused window taller
+| `^W=`           | Try to make all of the windows the same dimensions
+| `^W<direction>` | Move to an adjacent window in `<direction>`
+| `^Wb`           | Move to the bottommost window
+| `^Wt`           | Move to the topmost window
+| `^Ws`           | Horizontally split the currently focused window
+| `^Wz`           | Zoom in on the currently focused window
+| `m<character>`  | Assign the mark named `<character>` to the current room
+| `'<character>`  | Open the room marked `<character>` in the current window
+|===============================================================================
+
+### Scrolling
+
+Since most messages are limited to a few lines, iamb repurposes line navigation
+shortcuts for moving around a room's history. `gg` will go to the top of a
+room's history, and `G` to the bottom. You can scroll incrementally with the
+following shortcuts:
+
+[options="header"]
+.Scrolling Keys
+|===============================================================================
+| Keypress        | Action
+| `^Y`            | Scroll up a line
+| `^E`            | Scroll down a line
+| `^U`            | Scroll up half the screen's height
+| `^D`            | Scroll down half the screen's height
+| `^B`            | Scroll up the full screen's height
+| `^F`            | Scroll down the full screen's height
+| `gg`            | Scroll to the top
+| `G`             | Scroll to the bottom
+|===============================================================================
