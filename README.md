@@ -6,7 +6,7 @@ This is a vi-inspired terminal chat client that plans to support the following
 protocols:
 
 - Jabber (not yet implemented)
-- Matrix (not yet implemented)
+- Matrix ([in progress](https://github.com/melloc/node-iamb-matrix))
 - Mattermost ([in progress](https://github.com/melloc/node-iamb-mattermost))
 
 __*Note that this project is still very much in its early stages and a

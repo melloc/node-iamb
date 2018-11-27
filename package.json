@@ -27,6 +27,7 @@
     "dashdash": "1.14.1",
     "dtrace-provider": "~0.8",
     "extsprintf": "^1.4.0",
+    "iamb-matrix": "~0.0.1",
     "iamb-mattermost": "~0.1.0",
     "jsprim": "^1.4.1",
     "lomstream": "1.1.0",
