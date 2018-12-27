@@ -5,6 +5,9 @@
   "version": "0.0.2",
   "author": "Cody Peter Mello <cody.mello@joyent.com>",
   "keywords": [
+    "iamb",
+    "matrix",
+    "mattermost",
     "jabber",
     "xmpp"
   ],
@@ -17,20 +20,20 @@
   },
   "dependencies": {
     "ajv": "4.11.4",
-    "assert-plus": "1.0.0",
-    "termdraw": "1.0.0",
-    "bunyan": "1.8.5",
-    "cueball": "2.5.1",
+    "assert-plus": "^1.0.0",
+    "termdraw": "^1.0.0",
+    "bunyan": "^1.8.12",
+    "cueball": "^2.9.0",
     "dashdash": "1.14.1",
     "dtrace-provider": "~0.8",
-    "extsprintf": "1.3.0",
-    "iamb-mattermost": "0.0.1",
-    "jsprim": "1.4.0",
+    "extsprintf": "^1.4.0",
+    "iamb-mattermost": "~0.1.0",
+    "jsprim": "^1.4.1",
     "lomstream": "1.1.0",
-    "mooremachine": "2.1.0",
+    "mooremachine": "^2.2.1",
     "uuid": "3.0.0",
     "vasync": "1.6.4",
-    "verror": "1.9.0"
+    "verror": "^1.10.0"
   },
   "devDependencies": {
     "eslint": "2.13.1",

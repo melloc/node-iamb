@@ -1,0 +1,111 @@
+:toc: left
+:numbered:
+:data-uri:
+
+# Internals: Backends
+
+## Introduction
+
+iamb is written to support multiple backends, so that it can be run against
+different kinds of chat servers.
+
+## Exports
+
+The backend module should export the following two values:
+
+- `authConfigSchema`, a JSON schema to use for validating the `"auth"` object in
+  the iamb configuration.
+- `Client`, the backend client's constructor, implementing the interfaces
+  described in this document.
+
+## Interfaces
+
+### `new Client(opts)`
+
+The `Client` constructor should accept the following options:
+
+- `"auth"`, an Object containing the authentication information
+- `"log"`, a https://github.com/trentm/node-bunyan/[Bunyan] logger
+
+#### `Client#getRoomByName(name)`
+
+This should return the `Room` identified by `name`.
+
+#### `Client#getDirectByName(username)`
+
+This should return the `Room` for a direct chat with the user identified by
+`username`.
+
+#### Event `"connected"`
+
+This event should be emitted when the client has successfully connected for the
+first time.
+
+#### Event `"reconnected"`
+
+This event should be emitted when the client has lost its connection, and then
+successfully reconnected.
+
+### `Room`
+
+The `Room` interface represents a conference room and its history.
+
+#### `Room#id()`
+
+This method should return an identifier for this room, that is unique within
+the chat system.
+
+#### `Room#alias()`
+
+This should return the preferred alias for referring to the room within the
+chat system. In some systems, this may be the same as `Room#id()`.
+
+#### `Room#name()`
+
+This method should return the human-readable name to display for the room. If
+it returns null, then iamb will use the room's alias instead, or, failing that,
+the room's unique identifier.
+
+#### `Room#forEachMessage()`
+
+This method should iterate over each `Message` the client has loaded for the
+room, in the order that they were sent.
+
+#### `Room#sendMessage(msg, cb)`
+
+This method is used by iamb to send a message to this room. Once the message has
+been successfully sent, the client should call `cb`. If the message cannot be
+posted, then the callback should be called with an `Error`.
+
+#### Event `"message"`
+
+This should be emitted whenever a new message is posted to the `Room`. The event
+should be emitted in the order that the messages arrive.
+
+### `Message`
+
+The `Message` interface represents a message within a `Room`.
+
+#### `Message#speaker()`
+
+This should return the `User` object for the user who sent this message.
+
+#### `Message#text()`
+
+This should return the text as it should be displayed in the room's scrollback.
+
+#### `Message#created()`
+
+This should return the time, in milliseconds, that this message was sent at.
+
+### `User`
+
+The `User` interface represents a user within the chat system.
+
+#### `User#id()`
+
+This should return an identifier that is unique to the user in the chat system.
+
+#### `User#getDisplayName()`
+
+This method should return the name iamb should display in the `Room` scrollback.

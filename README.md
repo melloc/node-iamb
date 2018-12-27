@@ -7,17 +7,20 @@ protocols:
 
 - Jabber (not yet implemented)
 - Matrix (not yet implemented)
-- Mattermost (in progress)
+- Mattermost ([in progress](https://github.com/melloc/node-iamb-mattermost))
 
-__*This is still heavily in development and anything and everything is subject
-to change.*__ For now, you can try it out by creating a `mm-account.json` file
-in the repo that looks like:
+__*Note that this project is still very much in its early stages and a
+lot is subject to eventually change.*__
+
+For now, you can try it out by creating a `mm-account.json` file in the repo
+that looks like:
 
 ```
 {
-    "url": "<mattermost url",
-    "team": "<your team name>",
+    "protocol": "mattermost",
+    "url": "<mattermost url>",
     "auth": {
+        "team": "<your team name>",
         "username": "<your username>",
         "password": "<your password>"
     }
