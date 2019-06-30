@@ -34,6 +34,7 @@
     "mooremachine": "^2.2.1",
     "uuid": "3.0.0",
     "vasync": "1.6.4",
+    "fuzzyset.js": "^0.0.4",
     "verror": "^1.10.0"
   },
   "devDependencies": {
