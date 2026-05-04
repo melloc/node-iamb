@@ -32,7 +32,7 @@
     "jsprim": "^1.4.1",
     "lomstream": "1.1.0",
     "mooremachine": "^2.2.1",
-    "uuid": "3.0.0",
+    "uuid": "14.0.0",
     "vasync": "1.6.4",
     "fuzzyset.js": "^0.0.4",
     "verror": "^1.10.0"
